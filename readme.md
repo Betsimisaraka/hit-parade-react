@@ -1,3 +1,3 @@
 # Hit Parade in React
 
-I will document in my project
+[Figma-disign](https://www.figma.com/file/Nab1pgPVU2dciFofy4AOEe/Hit-Parade?node-id=0%3A1);
