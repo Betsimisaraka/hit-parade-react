@@ -33853,7 +33853,165 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"component/Header.js":[function(require,module,exports) {
+},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"songs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var songs = [{
+  title: "Jerosalema",
+  author: "Master KG",
+  styles: "Folk",
+  upvotes: 2,
+  downvotes: 5,
+  isFavorited: false,
+  lyrics: "O wanitwa mos, O wanitwa mos Master Master KG O wanitwa mos Jerusalema ikhaya lami Ngilondoloze",
+  id: 1
+}, {
+  title: "I have a drem",
+  author: "Westlife",
+  styles: "slow",
+  upvotes: 0,
+  downvotes: 3,
+  isFavorited: false,
+  lyrics: "I have a dream A song to sing To help me cope With anything If you see the wonder Of a fairy tale You can take the future Even if you fail",
+  id: 2
+}, {
+  title: "Manantena",
+  author: "Ny Ainga",
+  styles: "bassesa",
+  upvotes: 0,
+  downvotes: 3,
+  isFavorited: false,
+  lyrics: "Ho nofy ve ’zany andro izany Dia ’lay ora ,zay antenaintsika Tongava malaky, aza avela ho lany Ity fanantenana amintsika https://tononkira.serasera.org/hira/ny-ainga/manantena Tsiky dia ampy",
+  id: 3
+}, {
+  title: "Justin Bieber",
+  author: "Love your self",
+  styles: "rock",
+  upvotes: 10,
+  downvotes: 0,
+  isFavorited: false,
+  Llrics: "Cause if you like the way you look that much Oh baby, you should go and love yourself And if you think that I'm still holdin' on to",
+  id: 4
+}, {
+  title: "Talking to the moon",
+  author: "Brino March",
+  styles: "Rap",
+  upvotes: 0,
+  downvotes: 3,
+  isFavorited: false,
+  lyrics: "At night when the stars Light up my room I sit by myself Talking to the moon Tryna get to you In hopes you're on The other side Talking to me too Or am I a fool Who sits alone Talking to the moon Oh",
+  id: 5
+}, {
+  title: "Remember me",
+  author: "Lucky Dube",
+  styles: "Reggae",
+  upvotes: 0,
+  downvotes: 3,
+  isFavorited: false,
+  lyrics: "Mother died of a heart attack Many years ago when she heard That you were married again Now, I'm the only one left in the family",
+  id: 6
+}, {
+  title: "400 volt",
+  author: "Wawa",
+  styles: "Salegy",
+  upvotes: 0,
+  downvotes: 3,
+  isFavorited: false,
+  lyrics: "vas y maman dance maman, dansé x4 stop dance papa, dansé x 4 stop danse petit, dansé x 4 https://tononkira.serasera.org/hira/wawa/400-volt-1 tononkira.serasera.org",
+  id: 7
+}];
+var _default = songs;
+exports.default = _default;
+},{}],"Context.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ContextProvider = ContextProvider;
+exports.Context = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _songs = _interopRequireDefault(require("./songs"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var Context = _react.default.createContext();
+
+exports.Context = Context;
+
+function ContextProvider(_ref) {
+  var children = _ref.children;
+
+  var _useState = (0, _react.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      songs = _useState2[0],
+      setSongs = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      upvotes = _useState4[0],
+      setUpvotes = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(0),
+      _useState6 = _slicedToArray(_useState5, 2),
+      downvotes = _useState6[0],
+      setDownvotes = _useState6[1];
+
+  function getSongs() {
+    setSongs(_songs.default);
+  }
+
+  (0, _react.useEffect)(function () {
+    getSongs();
+  }, []);
+
+  function handleUpvotes(id) {
+    var findId = songs.find(function (song) {
+      return song.id === id;
+    });
+    var findUpvotes = findId.upvotes++;
+    setUpvotes(findUpvotes);
+  }
+
+  function handleDownvotes(id) {
+    var findId = songs.find(function (song) {
+      return song.id === id;
+    });
+    var findDownvotes = findId.downvotes++;
+    setDownvotes(findDownvotes);
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Context.Provider, {
+    value: {
+      songs: songs,
+      handleUpvotes: handleUpvotes,
+      handleDownvotes: handleDownvotes
+    }
+  }, children));
+}
+},{"react":"node_modules/react/index.js","./songs":"songs.js"}],"component/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33872,18 +34030,18 @@ function Header() {
     className: "header_navigation_lists"
   }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
-  }, "Popular Songs")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, "\uD83D\uDD25 Popular Songs")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/styles"
-  }, "Style")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, "\uD83D\uDC97 Style")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/add"
-  }, "Add")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, "\uD83D\uDC68\uD83C\uDFFF Add")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/cart"
   }, "Cart")))));
 }
 
 var _default = Header;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"pages/Home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"component/DisplaySongList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33891,17 +34049,94 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
+
+var _Context = require("../Context");
+
+var _songs = _interopRequireDefault(require("../songs"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function DisplaySongList(_ref) {
+  var song = _ref.song;
+
+  var _useContext = (0, _react.useContext)(_Context.Context),
+      handleUpvotes = _useContext.handleUpvotes,
+      handleDownvotes = _useContext.handleDownvotes;
+
+  return /*#__PURE__*/_react.default.createElement("li", {
+    className: "list-items"
+  }, /*#__PURE__*/_react.default.createElement("p", {
+    className: "heart-icon-line"
+  }, "\uD83D\uDC9B"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "heading"
+  }, /*#__PURE__*/_react.default.createElement("h2", null, song.title), /*#__PURE__*/_react.default.createElement("p", null, song.author)), /*#__PURE__*/_react.default.createElement("div", {
+    className: "upvotes"
+  }, /*#__PURE__*/_react.default.createElement("span", null, song.upvotes), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: function onClick() {
+      return handleUpvotes(song.id);
+    }
+  }, " \u2191 ")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "downvotes"
+  }, /*#__PURE__*/_react.default.createElement("span", null, song.downvotes), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: function onClick() {
+      return handleDownvotes(song.id);
+    }
+  }, " \u2193 ")), /*#__PURE__*/_react.default.createElement("p", {
+    className: "cart-icon-line"
+  }, "\uD83D\uDE94"), /*#__PURE__*/_react.default.createElement("button", {
+    className: "song-lyrics"
+  }, "..."));
+}
+
+var _default = DisplaySongList;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../Context":"Context.js","../songs":"songs.js"}],"pages/Home.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _DisplaySongList = _interopRequireDefault(require("../component/DisplaySongList"));
+
+var _Context = require("../Context");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 function Home() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Popular Songs"));
+  var _useContext = (0, _react.useContext)(_Context.Context),
+      songs = _useContext.songs;
+
+  var displaySongs = songs.sort(function (a, b) {
+    var votesA = a.upvotes - a.downvotes;
+    var votesB = b.upvotes - b.downvotes;
+    return votesB - votesA;
+  }).map(function (song) {
+    return /*#__PURE__*/_react.default.createElement(_DisplaySongList.default, {
+      key: song.id,
+      song: song
+    });
+  });
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("ul", {
+    className: "song-list"
+  }, displaySongs));
 }
 
 var _default = Home;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"pages/Cart.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../component/DisplaySongList":"component/DisplaySongList.js","../Context":"Context.js"}],"pages/Cart.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34050,12 +34285,14 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _Context = require("./Context");
+
 var _App = _interopRequireDefault(require("./App"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_App.default, null)), document.getElementById('root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./App":"App.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_Context.ContextProvider, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_App.default, null))), document.getElementById('root'));
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Context":"Context.js","./App":"App.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -34083,7 +34320,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62678" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54555" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
