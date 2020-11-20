@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
-import {Context} from '../Context';
-import songs from '../songs';
+import React, { useContext, useState } from 'react';
+import { Context } from '../Context';
 
 function DisplaySongList({ song }) {
-    const {handleUpvotes, handleDownvotes} = useContext(Context);
+    const { handleUpvotes, handleDownvotes } = useContext(Context);
+
+    const heartIcon = <i className="ri-heart-line favorite"></i>;
+    const cartIcon = <i className="ri-add-circle-line cart"></i>;
+
     return (
         <li className="list-items">
-            <p className="heart-icon-line">💛</p>
+            <p
+                className="heart-icon-line">{heartIcon}
+            </p>
             <div className="heading">
                 <h2>{song.title}</h2>
                 <p>{song.author}</p>
@@ -21,7 +26,7 @@ function DisplaySongList({ song }) {
                 </span>
                 <button onClick={() => handleDownvotes(song.id)}> ↓ </button>
             </div>
-            <p className="cart-icon-line">🚔</p>
+            <div className="cart-icon-line">{cartIcon}</div>
             <button className="song-lyrics">...</button>
         </li>
     )

@@ -1,6 +1,7 @@
 # Hit Parade in React
 
 [Figma-disign](https://www.figma.com/file/Nab1pgPVU2dciFofy4AOEe/Hit-Parade?node-id=0%3A1);
+**Icon**: https://google.github.io/material-design-icons/
 
 Instructions : 
 Code this hit parade with react, react-router and context!

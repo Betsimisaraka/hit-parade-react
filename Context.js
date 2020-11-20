@@ -4,8 +4,6 @@ import SongsData from './songs';
 
 function ContextProvider({ children }) {
     const [songs, setSongs] = useState([]);
-    const [upvotes, setUpvotes] = useState(0);
-    const [downvotes, setDownvotes] = useState(0);
 
     function getSongs() {
         setSongs(SongsData)
@@ -16,15 +14,29 @@ function ContextProvider({ children }) {
     }, [])
 
     function handleUpvotes(id) {
-        const findId = songs.find(song => song.id === id);
-        const findUpvotes = findId.upvotes++;
-        setUpvotes(findUpvotes);
+        const findUpvotes = songs.map(song => {
+            if (song.id === id) {
+                return {
+                    ...song,
+                    upvotes: song.upvotes + 1,
+                }
+            }
+            return song;
+        });
+        setSongs(findUpvotes);
     }
 
     function handleDownvotes(id) {
-        const findId = songs.find(song => song.id === id);
-        const findDownvotes = findId.downvotes++;
-        setDownvotes(findDownvotes);
+        const findDownvotes = songs.map(song => {
+            if (song.id === id) {
+                return {
+                    ...song,
+                    downvotes: song.downvotes + 1,
+                }
+            }
+            return song;
+        });
+        setSongs(findDownvotes);
     }
 
     return (

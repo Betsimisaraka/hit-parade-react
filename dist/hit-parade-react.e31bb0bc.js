@@ -33867,24 +33867,27 @@ var songs = [{
   upvotes: 2,
   downvotes: 5,
   isFavorited: false,
+  price: 1000,
   lyrics: "O wanitwa mos, O wanitwa mos Master Master KG O wanitwa mos Jerusalema ikhaya lami Ngilondoloze",
   id: 1
 }, {
   title: "I have a drem",
   author: "Westlife",
   styles: "slow",
-  upvotes: 0,
-  downvotes: 3,
+  upvotes: 20,
+  downvotes: 13,
   isFavorited: false,
+  price: 4050,
   lyrics: "I have a dream A song to sing To help me cope With anything If you see the wonder Of a fairy tale You can take the future Even if you fail",
   id: 2
 }, {
   title: "Manantena",
   author: "Ny Ainga",
   styles: "bassesa",
-  upvotes: 0,
+  upvotes: 5,
   downvotes: 3,
   isFavorited: false,
+  price: 5000,
   lyrics: "Ho nofy ve ’zany andro izany Dia ’lay ora ,zay antenaintsika Tongava malaky, aza avela ho lany Ity fanantenana amintsika https://tononkira.serasera.org/hira/ny-ainga/manantena Tsiky dia ampy",
   id: 3
 }, {
@@ -33892,35 +33895,39 @@ var songs = [{
   author: "Love your self",
   styles: "rock",
   upvotes: 10,
-  downvotes: 0,
+  downvotes: 12,
   isFavorited: false,
+  price: 10000,
   Llrics: "Cause if you like the way you look that much Oh baby, you should go and love yourself And if you think that I'm still holdin' on to",
   id: 4
 }, {
   title: "Talking to the moon",
   author: "Brino March",
   styles: "Rap",
-  upvotes: 0,
-  downvotes: 3,
+  upvotes: 45,
+  downvotes: 10,
   isFavorited: false,
+  price: 8000,
   lyrics: "At night when the stars Light up my room I sit by myself Talking to the moon Tryna get to you In hopes you're on The other side Talking to me too Or am I a fool Who sits alone Talking to the moon Oh",
   id: 5
 }, {
   title: "Remember me",
   author: "Lucky Dube",
   styles: "Reggae",
-  upvotes: 0,
-  downvotes: 3,
+  upvotes: 15,
+  downvotes: 45,
   isFavorited: false,
+  price: 2000,
   lyrics: "Mother died of a heart attack Many years ago when she heard That you were married again Now, I'm the only one left in the family",
   id: 6
 }, {
   title: "400 volt",
   author: "Wawa",
   styles: "Salegy",
-  upvotes: 0,
-  downvotes: 3,
+  upvotes: 100,
+  downvotes: 10,
   isFavorited: false,
+  price: 3000,
   lyrics: "vas y maman dance maman, dansé x4 stop dance papa, dansé x 4 stop danse petit, dansé x 4 https://tononkira.serasera.org/hira/wawa/400-volt-1 tononkira.serasera.org",
   id: 7
 }];
@@ -33944,6 +33951,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -33969,16 +33982,6 @@ function ContextProvider(_ref) {
       songs = _useState2[0],
       setSongs = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      upvotes = _useState4[0],
-      setUpvotes = _useState4[1];
-
-  var _useState5 = (0, _react.useState)(0),
-      _useState6 = _slicedToArray(_useState5, 2),
-      downvotes = _useState6[0],
-      setDownvotes = _useState6[1];
-
   function getSongs() {
     setSongs(_songs.default);
   }
@@ -33988,19 +33991,29 @@ function ContextProvider(_ref) {
   }, []);
 
   function handleUpvotes(id) {
-    var findId = songs.find(function (song) {
-      return song.id === id;
+    var findUpvotes = songs.map(function (song) {
+      if (song.id === id) {
+        return _objectSpread(_objectSpread({}, song), {}, {
+          upvotes: song.upvotes + 1
+        });
+      }
+
+      return song;
     });
-    var findUpvotes = findId.upvotes++;
-    setUpvotes(findUpvotes);
+    setSongs(findUpvotes);
   }
 
   function handleDownvotes(id) {
-    var findId = songs.find(function (song) {
-      return song.id === id;
+    var findDownvotes = songs.map(function (song) {
+      if (song.id === id) {
+        return _objectSpread(_objectSpread({}, song), {}, {
+          downvotes: song.downvotes + 1
+        });
+      }
+
+      return song;
     });
-    var findDownvotes = findId.downvotes++;
-    setDownvotes(findDownvotes);
+    setSongs(findDownvotes);
   }
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Context.Provider, {
@@ -34053,10 +34066,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _Context = require("../Context");
 
-var _songs = _interopRequireDefault(require("../songs"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -34068,11 +34077,19 @@ function DisplaySongList(_ref) {
       handleUpvotes = _useContext.handleUpvotes,
       handleDownvotes = _useContext.handleDownvotes;
 
+  var heartIcon = /*#__PURE__*/_react.default.createElement("i", {
+    className: "ri-heart-line favorite"
+  });
+
+  var cartIcon = /*#__PURE__*/_react.default.createElement("i", {
+    className: "ri-add-circle-line cart"
+  });
+
   return /*#__PURE__*/_react.default.createElement("li", {
     className: "list-items"
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: "heart-icon-line"
-  }, "\uD83D\uDC9B"), /*#__PURE__*/_react.default.createElement("div", {
+  }, heartIcon), /*#__PURE__*/_react.default.createElement("div", {
     className: "heading"
   }, /*#__PURE__*/_react.default.createElement("h2", null, song.title), /*#__PURE__*/_react.default.createElement("p", null, song.author)), /*#__PURE__*/_react.default.createElement("div", {
     className: "upvotes"
@@ -34086,16 +34103,16 @@ function DisplaySongList(_ref) {
     onClick: function onClick() {
       return handleDownvotes(song.id);
     }
-  }, " \u2193 ")), /*#__PURE__*/_react.default.createElement("p", {
+  }, " \u2193 ")), /*#__PURE__*/_react.default.createElement("div", {
     className: "cart-icon-line"
-  }, "\uD83D\uDE94"), /*#__PURE__*/_react.default.createElement("button", {
+  }, cartIcon), /*#__PURE__*/_react.default.createElement("button", {
     className: "song-lyrics"
   }, "..."));
 }
 
 var _default = DisplaySongList;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../Context":"Context.js","../songs":"songs.js"}],"pages/Home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../Context":"Context.js"}],"pages/Home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34320,7 +34337,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54555" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61764" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
