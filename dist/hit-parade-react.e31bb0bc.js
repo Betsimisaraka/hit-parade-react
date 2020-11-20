@@ -33952,6 +33952,14 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -33982,6 +33990,11 @@ function ContextProvider(_ref) {
       songs = _useState2[0],
       setSongs = _useState2[1];
 
+  var _useState3 = (0, _react.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      carts = _useState4[0],
+      setCarts = _useState4[1];
+
   function getSongs() {
     setSongs(_songs.default);
   }
@@ -33989,6 +34002,19 @@ function ContextProvider(_ref) {
   (0, _react.useEffect)(function () {
     getSongs();
   }, []);
+
+  function handleFavorited(id) {
+    var findFavorite = songs.map(function (song) {
+      if (song.id === id) {
+        return _objectSpread(_objectSpread({}, song), {}, {
+          isFavorited: !song.isFavorited
+        });
+      }
+
+      return song;
+    });
+    setSongs(findFavorite);
+  }
 
   function handleUpvotes(id) {
     var findUpvotes = songs.map(function (song) {
@@ -34016,11 +34042,28 @@ function ContextProvider(_ref) {
     setSongs(findDownvotes);
   }
 
+  function addToCart(newSong) {
+    setCarts(function (prevCart) {
+      return [].concat(_toConsumableArray(prevCart), [newSong]);
+    });
+  }
+
+  function deleteFromCart(id) {
+    var filteredCart = carts.filter(function (cart) {
+      return cart.id !== id;
+    });
+    setCarts(filteredCart);
+  }
+
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
       songs: songs,
       handleUpvotes: handleUpvotes,
-      handleDownvotes: handleDownvotes
+      handleDownvotes: handleDownvotes,
+      handleFavorited: handleFavorited,
+      carts: carts,
+      addToCart: addToCart,
+      deleteFromCart: deleteFromCart
     }
   }, children));
 }
@@ -34032,13 +34075,21 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _Context = require("../Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function Header() {
+  var _useContext = (0, _react.useContext)(_Context.Context),
+      carts = _useContext.carts;
+
+  var className = carts.length > 0 ? "ri-shopping-cart-fill" : "ri-add-circle-line";
   return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hit Parade"), /*#__PURE__*/_react.default.createElement("nav", null, /*#__PURE__*/_react.default.createElement("ul", {
     className: "header_navigation_lists"
   }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
@@ -34049,12 +34100,14 @@ function Header() {
     to: "/add"
   }, "\uD83D\uDC68\uD83C\uDFFF Add")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/cart"
-  }, "Cart")))));
+  }, /*#__PURE__*/_react.default.createElement("i", {
+    className: "".concat(className, " cart")
+  }), "Cart")))));
 }
 
 var _default = Header;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"component/DisplaySongList.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Context":"Context.js"}],"component/DisplaySongList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34075,21 +34128,57 @@ function DisplaySongList(_ref) {
 
   var _useContext = (0, _react.useContext)(_Context.Context),
       handleUpvotes = _useContext.handleUpvotes,
-      handleDownvotes = _useContext.handleDownvotes;
+      handleDownvotes = _useContext.handleDownvotes,
+      handleFavorited = _useContext.handleFavorited,
+      carts = _useContext.carts,
+      addToCart = _useContext.addToCart,
+      deleteFromCart = _useContext.deleteFromCart;
 
-  var heartIcon = /*#__PURE__*/_react.default.createElement("i", {
-    className: "ri-heart-line favorite"
-  });
+  function heartIcon() {
+    if (song.isFavorited) {
+      return /*#__PURE__*/_react.default.createElement("i", {
+        onClick: function onClick() {
+          return handleFavorited(song.id);
+        },
+        className: "ri-heart-fill favorite"
+      });
+    } else {
+      return /*#__PURE__*/_react.default.createElement("i", {
+        onClick: function onClick() {
+          return handleFavorited(song.id);
+        },
+        className: "ri-heart-line favorite"
+      });
+    }
+  }
 
-  var cartIcon = /*#__PURE__*/_react.default.createElement("i", {
-    className: "ri-add-circle-line cart"
-  });
+  function cartIcon() {
+    var moveToCart = carts.some(function (cart) {
+      return cart.id === song.id;
+    });
+
+    if (moveToCart) {
+      return /*#__PURE__*/_react.default.createElement("i", {
+        onClick: function onClick() {
+          return deleteFromCart(song.id);
+        },
+        className: "ri-shopping-cart-fill cart"
+      });
+    } else {
+      return /*#__PURE__*/_react.default.createElement("i", {
+        onClick: function onClick() {
+          return addToCart(song);
+        },
+        className: "ri-add-circle-line cart"
+      });
+    }
+  }
 
   return /*#__PURE__*/_react.default.createElement("li", {
     className: "list-items"
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: "heart-icon-line"
-  }, heartIcon), /*#__PURE__*/_react.default.createElement("div", {
+  }, heartIcon()), /*#__PURE__*/_react.default.createElement("div", {
     className: "heading"
   }, /*#__PURE__*/_react.default.createElement("h2", null, song.title), /*#__PURE__*/_react.default.createElement("p", null, song.author)), /*#__PURE__*/_react.default.createElement("div", {
     className: "upvotes"
@@ -34105,7 +34194,7 @@ function DisplaySongList(_ref) {
     }
   }, " \u2193 ")), /*#__PURE__*/_react.default.createElement("div", {
     className: "cart-icon-line"
-  }, cartIcon), /*#__PURE__*/_react.default.createElement("button", {
+  }, cartIcon()), /*#__PURE__*/_react.default.createElement("button", {
     className: "song-lyrics"
   }, "..."));
 }

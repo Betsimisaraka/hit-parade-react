@@ -2,15 +2,36 @@ import React, { useContext, useState } from 'react';
 import { Context } from '../Context';
 
 function DisplaySongList({ song }) {
-    const { handleUpvotes, handleDownvotes } = useContext(Context);
+    const { 
+        handleUpvotes, 
+        handleDownvotes, 
+        handleFavorited,
+        carts,
+        addToCart,
+        deleteFromCart,
+    } = useContext(Context);
 
-    const heartIcon = <i className="ri-heart-line favorite"></i>;
-    const cartIcon = <i className="ri-add-circle-line cart"></i>;
+    function heartIcon() {
+        if (song.isFavorited) {
+            return <i onClick={() => handleFavorited(song.id)} className="ri-heart-fill favorite"></i>
+        } else {
+            return <i onClick={() => handleFavorited(song.id)} className="ri-heart-line favorite"></i>
+        }
+    }
+
+    function cartIcon() {
+        const moveToCart = carts.some(cart => cart.id === song.id)
+        if (moveToCart) {
+            return <i onClick={() => deleteFromCart(song.id)} className="ri-shopping-cart-fill cart"></i>
+        } else {
+            return <i onClick={() => addToCart(song)} className="ri-add-circle-line cart"></i>
+        }
+    }
 
     return (
         <li className="list-items">
             <p
-                className="heart-icon-line">{heartIcon}
+                className="heart-icon-line">{heartIcon()}
             </p>
             <div className="heading">
                 <h2>{song.title}</h2>
@@ -26,7 +47,7 @@ function DisplaySongList({ song }) {
                 </span>
                 <button onClick={() => handleDownvotes(song.id)}> ↓ </button>
             </div>
-            <div className="cart-icon-line">{cartIcon}</div>
+            <div className="cart-icon-line">{cartIcon()}</div>
             <button className="song-lyrics">...</button>
         </li>
     )
