@@ -15,7 +15,7 @@ function SongWithSameStyle() {
 
     return (
         <div>
-            <h2>🎧 {styleName}</h2>
+            <h2 className="spacific-styles">🎧 {styleName}</h2>
             {mapStyles}
         </div>
     )

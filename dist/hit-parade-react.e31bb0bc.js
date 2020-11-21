@@ -34406,11 +34406,14 @@ function Add() {
   var _useContext = (0, _react.useContext)(_Context.Context),
       addNewSongs = _useContext.addNewSongs;
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Add a Song with Lyrics"), /*#__PURE__*/_react.default.createElement("form", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "add-heading"
+  }, "\uD83E\uDDD1\uD83C\uDFFF Add a new Song"), /*#__PURE__*/_react.default.createElement("form", {
+    className: "add-form",
     onSubmit: function onSubmit(e) {
       return addNewSongs(e);
     }
-  }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     name: "title",
     id: "title",
@@ -34430,8 +34433,10 @@ function Add() {
     required: true
   })), /*#__PURE__*/_react.default.createElement("select", {
     name: "styles",
-    id: "styles"
+    id: "styles",
+    className: "select"
   }, /*#__PURE__*/_react.default.createElement("option", {
+    className: "default",
     value: ""
   }, "Style"), /*#__PURE__*/_react.default.createElement("option", {
     value: "salegy"
@@ -34450,8 +34455,10 @@ function Add() {
   }, "Reggae")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("textarea", {
     name: "lyrics",
     id: "lyrics",
-    placeholder: "Lyrics"
-  })), /*#__PURE__*/_react.default.createElement("button", {
+    placeholder: "Lyrics",
+    rows: "10",
+    cols: "33"
+  }))), /*#__PURE__*/_react.default.createElement("button", {
     className: "submit",
     type: "submit"
   }, "Add")));
@@ -34490,7 +34497,11 @@ function Styles() {
       to: "/styles/".concat(song.styles)
     }, "\uD83C\uDFA7 ", song.styles));
   });
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Here is the styles"), /*#__PURE__*/_react.default.createElement("form", {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "styles"
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "styles-heading"
+  }, "\uD83C\uDFA7 Here is the styles"), /*#__PURE__*/_react.default.createElement("div", {
     className: "styles-container"
   }, mapSongs));
 }
@@ -34574,7 +34585,11 @@ function SameStylesSongs(_ref) {
   var song = _ref.song;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "same-styles"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, song.title), /*#__PURE__*/_react.default.createElement("p", null, song.author));
+  }, /*#__PURE__*/_react.default.createElement("h3", {
+    className: "same-styles-title"
+  }, song.title), /*#__PURE__*/_react.default.createElement("p", {
+    className: "same-styles-author"
+  }, song.author));
 }
 
 var _default = SameStylesSongs;
@@ -34616,7 +34631,9 @@ function SongWithSameStyle() {
       });
     }
   });
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "\uD83C\uDFA7 ", styleName), mapStyles);
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "spacific-styles"
+  }, "\uD83C\uDFA7 ", styleName), mapStyles);
 }
 
 var _default = SongWithSameStyle;

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Context } from '../Context'
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Styles() {
     const { songs } = useContext(Context);
@@ -11,11 +11,11 @@ function Styles() {
     ))
 
     return (
-        <div>
-            <h2>Here is the styles</h2>
-            <form className="styles-container">
+        <div className="styles">
+            <h2 className="styles-heading">🎧 Here is the styles</h2>
+            <div className="styles-container">
                 {mapSongs}
-            </form>
+            </div>
         </div>
     )
 }
