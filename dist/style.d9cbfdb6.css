@@ -93,6 +93,16 @@ ul {
   align-items: flex-start;
 }
 
+fieldset {
+  border: none;
+}
+
+.submit {
+  background-color: blue;
+  padding: 1rem;
+  color: white;
+}
+
 .cart-container {
   display: flex;
   flex-direction: column;

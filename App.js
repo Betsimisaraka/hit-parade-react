@@ -6,7 +6,7 @@ import Add from './pages/Add';
 import Styles from './pages/Styles';
 import { Route, Switch } from 'react-router-dom';
 import SongLyrics from './pages/SongLyrics';
-import SongWithSameStyle from './component/SongWithSameStyle';
+import SongWithSameStyle from './pages/SongWithSameStyle';
 
 function App() {
     return (
