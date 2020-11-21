@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Context } from '../Context';
 
 function DisplaySongList({ song }) {
@@ -48,7 +49,7 @@ function DisplaySongList({ song }) {
                 <button onClick={() => handleDownvotes(song.id)}> ↓ </button>
             </div>
             <div className="cart-icon-line">{cartIcon()}</div>
-            <button className="song-lyrics">...</button>
+            <Link to={`/song/${song.id}`}> <p className="song-lyrics">...</p></Link>
         </li>
     )
 }

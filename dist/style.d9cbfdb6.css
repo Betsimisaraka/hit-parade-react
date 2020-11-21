@@ -30,7 +30,6 @@ a {
 
 button {
   background-color: transparent;
-  color: white;
   border: none;
   cursor: pointer;
 }
@@ -85,6 +84,13 @@ ul {
 
 .song-lyrics {
   grid-column: 8/9;
+}
+
+.styles-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .cart-container {

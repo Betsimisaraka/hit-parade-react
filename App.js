@@ -5,6 +5,8 @@ import Cart from './pages/Cart';
 import Add from './pages/Add';
 import Styles from './pages/Styles';
 import { Route, Switch } from 'react-router-dom';
+import SongLyrics from './pages/SongLyrics';
+import SongWithSameStyle from './component/SongWithSameStyle';
 
 function App() {
     return (
@@ -14,8 +16,14 @@ function App() {
                 <Route exact path="/">
                     <Home />
                 </Route>
-                <Route path="/styles">
+                <Route exact path="/styles">
                     <Styles />
+                </Route>
+                <Route path="/styles/:styleName">
+                    <SongWithSameStyle />
+                </Route>
+                <Route path="/song/:id">
+                    <SongLyrics />
                 </Route>
                 <Route path="/add">
                     <Add />
