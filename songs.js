@@ -7,7 +7,7 @@ const songs = [
         downvotes: 5,
         isFavorited: false,
         price: 1000,
-        lyrics: "O wanitwa mos, O wanitwa mos Master Master KG O wanitwa mos Jerusalema ikhaya lami Ngilondoloze",
+        lyrics: "O wanitwa mos, O wanitwa mos Master Master KG O wanitwa mos Jerusalema ikhaya lami Ngilondoloze Uhambe nami Zungangishiyi lana Jerusalema ikhaya lami Ngilondoloze Uhambe nami Zungangishiyi lana Ndawo yami ayikho lana Mbuso wami awukho lana Ngilondoloze Zuhambe nami Ndawo yami ayikho lana Mbuso wami awukho lana Ngilondoloze Zuhambe nami Ngilondoloze ngilondoloze ngilondoloze Zungangishiyi lana Ngilondoloze ngilondoloze ngilondoloze Zungangishiyi…",
         id: 1,
     },
     {
@@ -18,7 +18,7 @@ const songs = [
         downvotes: 13,
         isFavorited: false,
         price: 4050,
-        lyrics: "I have a dream A song to sing To help me cope With anything If you see the wonder Of a fairy tale You can take the future Even if you fail",
+        lyrics: "I have a dream A song to sing To help me cope With anything If you see the wonder Of a fairy tale You can take the future Even if you fail I believe in angels Something good in everything I see I believe in angels When I know the time is right for me I'll cross the stream I have a dream, oh yeah I have a dream (I have a dream) A fantasy (fantasy) To help me through (help me through) Reality (reality) And my destination (destination) Makes it worth the while (worth the while) Pushing through the darkness (through the darkness) Still another mile (another mile) I believe in angels Something good in everything I see I believe in angels When I know the time is right for me I'll cross the stream (cross the stream) I have a dream I have a dream (oh yeah) A song to sing…",
         id: 2,
     },
     {
@@ -29,7 +29,7 @@ const songs = [
         downvotes: 3,
         isFavorited: false,
         price: 5000,
-        lyrics: "Ho nofy ve ’zany andro izany Dia ’lay ora ,zay antenaintsika Tongava malaky, aza avela ho lany Ity fanantenana amintsika https://tononkira.serasera.org/hira/ny-ainga/manantena Tsiky dia ampy",
+        lyrics: "Misento aho indraika malala Torovana mahatsiaro irery Kanefa ny toky tsy miala Manery ahy, ka tsy mbola very ref: Ho nofy ve ’zany andro izany Dia ’lay ora ,zay antenaintsika Tongava malaky, aza avela ho lany Ity fanantenana amintsika Ny adidy izay vitako etoana Dia hotontosaiko avokoa Porofo fa mbola tsy foana ilay toky andrandraintsika roa Hiandry aho ka hiandry hatrany Na mafy aza ny manantena Fo feno toky sikino hatrany Fa hoavy izany andro izany",
         id: 3,
     },
     {
@@ -73,7 +73,7 @@ const songs = [
         downvotes: 10,
         isFavorited: false,
         price: 3000,
-        lyrics: "vas y maman dance maman, dansé x4 stop dance papa, dansé x 4 stop danse petit, dansé x 4 https://tononkira.serasera.org/hira/wawa/400-volt-1 tononkira.serasera.org",
+        lyrics: "vas y maman dance maman, dansé x4 stop dance papa, dansé x 4 stop danse petit, dansé x 4",
         id: 7,
     }
 ]

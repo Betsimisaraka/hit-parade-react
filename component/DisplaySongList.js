@@ -25,7 +25,7 @@ function DisplaySongList({ song }) {
         if (moveToCart) {
             return <i onClick={() => deleteFromCart(song.id)} className="ri-shopping-cart-fill cart"></i>
         } else {
-            return <i onClick={() => addToCart(song)} className="ri-add-circle-line cart"></i>
+            return <i onClick={() => addToCart(song)} className="ri-shopping-cart-line cart"></i>
         }
     }
 

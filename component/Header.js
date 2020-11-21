@@ -5,7 +5,7 @@ import { Context } from '../Context';
 function Header() {
     const { carts } = useContext(Context);
 
-    const className = carts.length > 0 ? "ri-shopping-cart-fill" : "ri-add-circle-line";
+    const className = carts.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line";
 
     return (
         <header>
