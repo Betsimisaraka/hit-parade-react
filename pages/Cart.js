@@ -4,8 +4,8 @@ import CartLists from '../component/CartLists';
 
 function Cart() {
     const { carts, emptyCart } = useContext(Context);
-    const [buyBtnText, setBuyBtnText] = useState("Buy now");
-    const totalCost = carts.length * 8000;
+    const [buyBtnText, setBuyBtnText] = useState("Buy");
+    const totalCost = carts.length * 5000;
     const price = totalCost.toLocaleString("en-US", { style: "currency", currency: "USD" });
 
     const displayCarts = carts.map(cart => (
@@ -17,7 +17,7 @@ function Cart() {
         setTimeout(() => {
             console.log("Buying cart");
             emptyCart();
-            setBuyBtnText("Buy now");
+            setBuyBtnText("Buy");
         }, 4000);
     }
 
@@ -26,11 +26,13 @@ function Cart() {
             <ul className="cart-list">
                 {displayCarts}
             </ul>
-            <span className="total-price">Total: {price}</span>
-            {carts.length > 0 
-                ? <button onClick={buyBtn} className="order-button">{buyBtnText}</button>
-                : <p>You don't have any items in your cart</p>
-            }
+            <div className="price-container">
+                {carts.length > 0
+                    ? <button onClick={buyBtn} className="order-button">{buyBtnText}</button>
+                    : <p className="no-items">You don't have any items in your cart</p>
+                }
+                <p className="total-price">Total: <span className="total-cost">{price}</span></p>
+            </div>
         </div>
     )
 }

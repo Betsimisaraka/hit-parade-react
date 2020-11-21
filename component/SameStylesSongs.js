@@ -3,8 +3,8 @@ import React from 'react'
 function SameStylesSongs({ song }) {
     return (
         <div className="same-styles">
-            <h3 className="same-styles-title">{song.title}</h3>
-            <p className="same-styles-author">{song.author}</p>
+            <h2 className="same-styles-title title">{song.title}</h2>
+            <p className="same-styles-author author">{song.author}</p>
         </div>
     )
 }

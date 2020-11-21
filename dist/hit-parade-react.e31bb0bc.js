@@ -34207,15 +34207,21 @@ function DisplaySongList(_ref) {
     className: "heart-icon-line"
   }, heartIcon()), /*#__PURE__*/_react.default.createElement("div", {
     className: "heading"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, song.title), /*#__PURE__*/_react.default.createElement("p", null, song.author)), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "title"
+  }, song.title), /*#__PURE__*/_react.default.createElement("p", {
+    className: "author"
+  }, song.author)), /*#__PURE__*/_react.default.createElement("div", {
     className: "upvotes"
   }, /*#__PURE__*/_react.default.createElement("span", null, song.upvotes), /*#__PURE__*/_react.default.createElement("button", {
+    className: "arrowup",
     onClick: function onClick() {
       return handleUpvotes(song.id);
     }
   }, " \u2191 ")), /*#__PURE__*/_react.default.createElement("div", {
     className: "downvotes"
   }, /*#__PURE__*/_react.default.createElement("span", null, song.downvotes), /*#__PURE__*/_react.default.createElement("button", {
+    className: "arrowdown",
     onClick: function onClick() {
       return handleDownvotes(song.id);
     }
@@ -34302,7 +34308,11 @@ function CartLists(_ref) {
     className: "ri-delete-bin-line delete"
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "title-author"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, cart.title), /*#__PURE__*/_react.default.createElement("p", null, cart.author)), /*#__PURE__*/_react.default.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "title"
+  }, cart.title), /*#__PURE__*/_react.default.createElement("p", {
+    className: "author"
+  }, cart.author)), /*#__PURE__*/_react.default.createElement("span", {
     className: "price"
   }, "$", cart.price));
 }
@@ -34346,12 +34356,12 @@ function Cart() {
       carts = _useContext.carts,
       emptyCart = _useContext.emptyCart;
 
-  var _useState = (0, _react.useState)("Buy now"),
+  var _useState = (0, _react.useState)("Buy"),
       _useState2 = _slicedToArray(_useState, 2),
       buyBtnText = _useState2[0],
       setBuyBtnText = _useState2[1];
 
-  var totalCost = carts.length * 8000;
+  var totalCost = carts.length * 5000;
   var price = totalCost.toLocaleString("en-US", {
     style: "currency",
     currency: "USD"
@@ -34368,7 +34378,7 @@ function Cart() {
     setTimeout(function () {
       console.log("Buying cart");
       emptyCart();
-      setBuyBtnText("Buy now");
+      setBuyBtnText("Buy");
     }, 4000);
   }
 
@@ -34376,12 +34386,18 @@ function Cart() {
     className: "cart-container"
   }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "cart-list"
-  }, displayCarts), /*#__PURE__*/_react.default.createElement("span", {
-    className: "total-price"
-  }, "Total: ", price), carts.length > 0 ? /*#__PURE__*/_react.default.createElement("button", {
+  }, displayCarts), /*#__PURE__*/_react.default.createElement("div", {
+    className: "price-container"
+  }, carts.length > 0 ? /*#__PURE__*/_react.default.createElement("button", {
     onClick: buyBtn,
     className: "order-button"
-  }, buyBtnText) : /*#__PURE__*/_react.default.createElement("p", null, "You don't have any items in your cart"));
+  }, buyBtnText) : /*#__PURE__*/_react.default.createElement("p", {
+    className: "no-items"
+  }, "You don't have any items in your cart"), /*#__PURE__*/_react.default.createElement("p", {
+    className: "total-price"
+  }, "Total: ", /*#__PURE__*/_react.default.createElement("span", {
+    className: "total-cost"
+  }, price))));
 }
 
 var _default = Cart;
@@ -34522,7 +34538,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function SongDetail(_ref) {
   var song = _ref.song;
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, song.author, ": ", song.title), /*#__PURE__*/_react.default.createElement("p", null, song.lyrics));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "lyrics-heading"
+  }, song.author, ": ", song.title), /*#__PURE__*/_react.default.createElement("div", {
+    className: "lyrics-detail"
+  }, /*#__PURE__*/_react.default.createElement("h3", {
+    className: "lyrics"
+  }, "Lyrics"), /*#__PURE__*/_react.default.createElement("p", {
+    className: "lyrics-lyrics"
+  }, song.lyrics)));
 }
 
 var _default = SongDetail;
@@ -34585,10 +34609,10 @@ function SameStylesSongs(_ref) {
   var song = _ref.song;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "same-styles"
-  }, /*#__PURE__*/_react.default.createElement("h3", {
-    className: "same-styles-title"
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "same-styles-title title"
   }, song.title), /*#__PURE__*/_react.default.createElement("p", {
-    className: "same-styles-author"
+    className: "same-styles-author author"
   }, song.author));
 }
 

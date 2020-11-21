@@ -8,8 +8,8 @@ function CartLists({ cart }) {
         <li className="cart-items">
             <i onClick={() => deleteFromCart(cart.id)} className="ri-delete-bin-line delete"></i>
             <div className="title-author">
-                <h3>{cart.title}</h3>
-                <p>{cart.author}</p>
+                <h2 className="title">{cart.title}</h2>
+                <p className="author">{cart.author}</p>
             </div>
             <span className="price">${cart.price}</span>
         </li>

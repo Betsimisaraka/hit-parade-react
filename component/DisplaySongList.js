@@ -35,18 +35,18 @@ function DisplaySongList({ song }) {
                 className="heart-icon-line">{heartIcon()}
             </p>
             <div className="heading">
-                <h2>{song.title}</h2>
-                <p>{song.author}</p>
+                <h2 className="title">{song.title}</h2>
+                <p className="author">{song.author}</p>
             </div>
             <div className="upvotes">
                 <span>{song.upvotes}
                 </span>
-                <button onClick={() => handleUpvotes(song.id)}> ↑ </button>
+                <button className="arrowup" onClick={() => handleUpvotes(song.id)}> ↑ </button>
             </div>
             <div className="downvotes">
                 <span>{song.downvotes}
                 </span>
-                <button onClick={() => handleDownvotes(song.id)}> ↓ </button>
+                <button className="arrowdown" onClick={() => handleDownvotes(song.id)}> ↓ </button>
             </div>
             <div className="cart-icon-line">{cartIcon()}</div>
             <Link to={`/song/${song.id}`}> <p className="song-lyrics">...</p></Link>

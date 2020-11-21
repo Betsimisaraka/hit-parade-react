@@ -3,8 +3,11 @@ import React from 'react'
 function SongDetail({ song }) {
     return (
         <div>
-            <h3>{song.author}: {song.title}</h3>
-            <p>{song.lyrics}</p>
+            <h2 className="lyrics-heading">{song.author}: {song.title}</h2>
+            <div className="lyrics-detail">
+                <h3 className="lyrics">Lyrics</h3>
+                <p className="lyrics-lyrics">{song.lyrics}</p>
+            </div>
         </div>
     )
 }
