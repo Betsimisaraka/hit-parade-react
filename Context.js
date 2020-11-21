@@ -66,6 +66,25 @@ function ContextProvider({ children }) {
         setCarts([])
     }
 
+    function addNewSongs(e) {
+        e.preventDefault();
+        const form = e.target;
+        const newSongs = {
+            title: form.title.value,
+            author: form.artist.value,
+            styles: form.styles.value,
+            upvotes: 0,
+            downvotes: 0,
+            isFavorited: false,
+            price: form.price.value,
+            lyrics: form.lyrics.value,
+            id: Date.now(),
+        }
+        const addSongs = [...songs, newSongs]
+        setSongs(addSongs);
+        form.reset();
+    }
+
     return (
         <div>
             <Context.Provider value={{
@@ -77,6 +96,7 @@ function ContextProvider({ children }) {
                 addToCart,
                 deleteFromCart,
                 emptyCart,
+                addNewSongs,
             }}>
                 {children}
             </Context.Provider>

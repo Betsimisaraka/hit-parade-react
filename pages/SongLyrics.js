@@ -7,7 +7,6 @@ function SongLyrics() {
     const { songs } = useContext(Context);
 
     const { id } = useParams();
-    console.log(id);
 
     const lyrics = songs.map(song => {
          if (song.id === Number(id)) {

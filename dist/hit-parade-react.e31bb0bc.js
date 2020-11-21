@@ -34059,6 +34059,25 @@ function ContextProvider(_ref) {
     setCarts([]);
   }
 
+  function addNewSongs(e) {
+    e.preventDefault();
+    var form = e.target;
+    var newSongs = {
+      title: form.title.value,
+      author: form.artist.value,
+      styles: form.styles.value,
+      upvotes: 0,
+      downvotes: 0,
+      isFavorited: false,
+      price: form.price.value,
+      lyrics: form.lyrics.value,
+      id: Date.now()
+    };
+    var addSongs = [].concat(_toConsumableArray(songs), [newSongs]);
+    setSongs(addSongs);
+    form.reset();
+  }
+
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
       songs: songs,
@@ -34068,7 +34087,8 @@ function ContextProvider(_ref) {
       carts: carts,
       addToCart: addToCart,
       deleteFromCart: deleteFromCart,
-      emptyCart: emptyCart
+      emptyCart: emptyCart,
+      addNewSongs: addNewSongs
     }
   }, children));
 }
@@ -34374,30 +34394,46 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _Context = require("../Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function Add() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Add a Song with Lyrics"), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+  var _useContext = (0, _react.useContext)(_Context.Context),
+      addNewSongs = _useContext.addNewSongs;
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Add a Song with Lyrics"), /*#__PURE__*/_react.default.createElement("form", {
+    onSubmit: function onSubmit(e) {
+      return addNewSongs(e);
+    }
+  }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     name: "title",
     id: "title",
-    placeholder: "Title"
+    placeholder: "Title",
+    required: true
   })), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     name: "artist",
     placeholder: "Artist",
-    id: "artist"
+    id: "artist",
+    required: true
   })), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
     type: "number",
     id: "price",
     name: "price",
-    placeholder: "Price"
+    placeholder: "Price",
+    required: true
   })), /*#__PURE__*/_react.default.createElement("select", {
     name: "styles",
     id: "styles"
   }, /*#__PURE__*/_react.default.createElement("option", {
+    value: ""
+  }, "Style"), /*#__PURE__*/_react.default.createElement("option", {
     value: "salegy"
   }, "Salegy"), /*#__PURE__*/_react.default.createElement("option", {
     value: "rock"
@@ -34413,7 +34449,8 @@ function Add() {
     value: "reggae"
   }, "Reggae")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("textarea", {
     name: "lyrics",
-    id: "lyrics"
+    id: "lyrics",
+    placeholder: "Lyrics"
   })), /*#__PURE__*/_react.default.createElement("button", {
     className: "submit",
     type: "submit"
@@ -34422,7 +34459,7 @@ function Add() {
 
 var _default = Add;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"pages/Styles.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../Context":"Context.js"}],"pages/Styles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34508,7 +34545,6 @@ function SongLyrics() {
   var _useParams = (0, _reactRouterDom.useParams)(),
       id = _useParams.id;
 
-  console.log(id);
   var lyrics = songs.map(function (song) {
     if (song.id === Number(id)) {
       return /*#__PURE__*/_react.default.createElement(_SongDetail.default, {
