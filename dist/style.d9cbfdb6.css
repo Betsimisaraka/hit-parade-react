@@ -98,6 +98,18 @@ ul {
   padding: 50px;
 }
 
+.favorite {
+  color: #FFD803;
+}
+
+.cart-fill {
+  color: #FFD803;
+}
+
+.cart-line {
+  color: #BAE8E8;
+}
+
 .heart-icon-line {
   grid-column: 1/2;
 }

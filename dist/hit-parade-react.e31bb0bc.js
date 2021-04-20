@@ -33993,15 +33993,32 @@ function ContextProvider(_ref) {
   var _useState3 = (0, _react.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
       carts = _useState4[0],
-      setCarts = _useState4[1];
+      setCarts = _useState4[1]; // function getSongs() {
+  //     const lsSongs = JSON.parse(localStorage.getItem('songs'))
+  //     if (lsSongs) {
+  //         setSongs(lsSongs)
+  //     } else {
+  //         setSongs(SongsData)
+  //     }
+  // }
 
-  function getSongs() {
-    setSongs(_songs.default);
-  }
 
   (0, _react.useEffect)(function () {
-    getSongs();
-  }, []);
+    setSongs(_songs.default);
+  }, []); // useEffect(() => {
+  //     if (songs.length > 0) {
+  //         localStorage.setItem('songs', JSON.stringify(songs));
+  //     }
+  // }, [songs])
+  // function initLs() {
+  //     const lsCartSongs = JSON.parse(localStorage.getItem("carts"))
+  //     if (lsCartSongs) {
+  //         setCarts(lsCartSongs);
+  //     }
+  // }
+  // useEffect(() => {
+  //     localStorage.setItem("carts", JSON.stringify(carts));
+  // }, [carts])
 
   function handleFavorited(id) {
     var findFavorite = songs.map(function (song) {
@@ -34189,14 +34206,14 @@ function DisplaySongList(_ref) {
         onClick: function onClick() {
           return deleteFromCart(song.id);
         },
-        className: "ri-shopping-cart-fill cart"
+        className: "ri-shopping-cart-fill cart-fill"
       });
     } else {
       return /*#__PURE__*/_react.default.createElement("i", {
         onClick: function onClick() {
           return addToCart(song);
         },
-        className: "ri-shopping-cart-line cart"
+        className: "ri-shopping-cart-line cart-line"
       });
     }
   }
@@ -34726,7 +34743,7 @@ var _App = _interopRequireDefault(require("./App"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(_Context.ContextProvider, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_App.default, null))), document.getElementById('root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Context":"Context.js","./App":"App.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Context":"Context.js","./App":"App.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -34754,7 +34771,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54631" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62473" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -34930,5 +34947,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/hit-parade-react.e31bb0bc.js.map

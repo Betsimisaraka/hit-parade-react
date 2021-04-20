@@ -6,13 +6,36 @@ function ContextProvider({ children }) {
     const [songs, setSongs] = useState([]);
     const [carts, setCarts] = useState([]);
 
-    function getSongs() {
-        setSongs(SongsData)
-    }
+    // function getSongs() {
+    //     const lsSongs = JSON.parse(localStorage.getItem('songs'))
+    //     if (lsSongs) {
+    //         setSongs(lsSongs)
+    //     } else {
+    //         setSongs(SongsData)
+    //     }
+    // }
 
     useEffect(() => {
-        getSongs();
+        setSongs(SongsData)
     }, [])
+
+    // useEffect(() => {
+    //     if (songs.length > 0) {
+    //         localStorage.setItem('songs', JSON.stringify(songs));
+    //     }
+    // }, [songs])
+
+    // function initLs() {
+    //     const lsCartSongs = JSON.parse(localStorage.getItem("carts"))
+    //     if (lsCartSongs) {
+    //         setCarts(lsCartSongs);
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     localStorage.setItem("carts", JSON.stringify(carts));
+    // }, [carts])
+
 
     function handleFavorited(id) {
         const findFavorite = songs.map(song => {

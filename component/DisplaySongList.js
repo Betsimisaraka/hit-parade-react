@@ -23,9 +23,9 @@ function DisplaySongList({ song }) {
     function cartIcon() {
         const moveToCart = carts.some(cart => cart.id === song.id)
         if (moveToCart) {
-            return <i onClick={() => deleteFromCart(song.id)} className="ri-shopping-cart-fill cart"></i>
+            return <i onClick={() => deleteFromCart(song.id)} className="ri-shopping-cart-fill cart-fill"></i>
         } else {
-            return <i onClick={() => addToCart(song)} className="ri-shopping-cart-line cart"></i>
+            return <i onClick={() => addToCart(song)} className="ri-shopping-cart-line cart-line"></i>
         }
     }
 
